@@ -127,7 +127,12 @@ we have to clean it up ourselves."
 
     (defadvice! +dired-restore-icons-after-wdired-mode-a (&rest _)
       :after #'wdired-change-to-dired-mode
-      (all-the-icons-dired-mode +wdired-icons-enabled))))
+      (all-the-icons-dired-mode +wdired-icons-enabled)))
+  (add-hook 'all-the-icons-dired-mode-hook
+            (defun +dired-set-tab-width-for-icons ()
+              "Set a bigger `tab-width' for `all-the-icons-dired'
+so that filenames get aligend properly after the icons"
+              (setq-local tab-width 2))))
 
 
 (use-package! dired-x
