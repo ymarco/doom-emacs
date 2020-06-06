@@ -160,7 +160,10 @@ Math faces should stay fixed by the mixed-pitch blacklist, this is mostly for
                 preview-scale-function
                 (lambda () (* (/ 10.0 (preview-document-pt)) preview-scale)))
   ;; cache premable without asking
-  (setq preview-auto-cache-preamble t))
+  (setq preview-auto-cache-preamble t)
+  (map! :map LaTeX-mode-map
+        :desc "Preview" "p" #'preview-at-point
+        :desc "Unpreview" "P" #'preview-clearout-at-point))
 
 
 (use-package! cdlatex
