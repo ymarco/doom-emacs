@@ -161,7 +161,10 @@ Math faces should stay fixed by the mixed-pitch blacklist, this is mostly for
                 (lambda () (* (/ 10.0 (preview-document-pt)) preview-scale)))
   ;; Don't cache preamble, it creates issues with synctex. Let the user enable
   ;; caching if they have compilation times that long.
-  (setq preview-auto-cache-preamble nil))
+  (setq preview-auto-cache-preamble nil)
+  (map! :map LaTeX-mode-map
+        :desc "Preview" "p" #'preview-at-point
+        :desc "Unpreview" "P" #'preview-clearout-at-point))
 
 
 (use-package! cdlatex
