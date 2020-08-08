@@ -13,6 +13,8 @@
 (when (featurep! +cdlatex)
   (package! cdlatex :pin "480387b39f6ddd9cd2a9511ecee064ad8e1dd324"))
 
+(when (featurep! :editor evil)
+  (package! evil-tex :pin "bb01576e4cf9cc10c529621ced3ef3a7eb5ab376"))
 ;; Features according to other user selected options
 
 (when (featurep! :completion company)
